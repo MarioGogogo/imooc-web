@@ -1,10 +1,16 @@
+<template>
+  <div>是否移动设备---{{ isMobileTerminal }}</div>
+  <!-- 一级路由 -->
+  <router-view></router-view>
+</template>
+
+
+
 <script setup>
 import { isMobileTerminal } from './utils/flexible.js';
 </script>
 
-<template>
-  <div>是否移动设备---{{ isMobileTerminal }}</div>
-</template>
+
 
 <style>
 #app {
