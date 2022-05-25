@@ -13,4 +13,4 @@ import pcNavigation from './pc/index.vue';
 </script>
 
 <style lang="scss" scoped>
-</style>
+</style> 

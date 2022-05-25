@@ -8,6 +8,13 @@
 
 <script setup>
 import { isMobileTerminal } from './utils/flexible.js';
+import { onMounted } from 'vue';
+import { fetchGetCategory } from '@/api/category.js';
+
+onMounted(() => {
+  fetchGetCategory()
+})
+
 </script>
 
 

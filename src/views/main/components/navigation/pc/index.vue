@@ -1,5 +1,7 @@
 <template>
-  <div class="mobilehead">pc的头部</div>
+  <div class="mobilehead">
+    <!-- 搜索模块 -->
+  </div>
 </template>
 
 <script setup>
