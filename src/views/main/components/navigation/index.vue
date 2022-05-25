@@ -14,7 +14,7 @@ import mobileNavigation from './mobile/index.vue';
 import pcNavigation from './pc/index.vue';
 import { ref, onMounted } from 'vue';
 import { fetchGetCategory } from '@/api/category.js';
-
+import { ALL_CATEGORY_ITEM } from '@/constants';
 
 //初始化类别数据
 const categoryData = ref([])
@@ -27,6 +27,7 @@ onMounted(async () => {
   if (success && results[0]) {
     const { categorys } = results[0]
     categoryData.value = categorys
+    categoryData.value.unshift(ALL_CATEGORY_ITEM)
     console.log('%c 🍅 res: ', 'font-size:20px;background-color: #FFDD4D;color:#fff;', categorys);
   }
 
