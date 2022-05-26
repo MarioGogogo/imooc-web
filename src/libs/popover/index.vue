@@ -7,10 +7,7 @@
   </div>
   <!-- 气泡展示 -->
   <transition name="slide">
-    <div
-      v-show="isViable"
-      class="absolute right-10 top-8 p-1 z-20 bg-white border rounded-md"
-    >
+    <div v-show="isViable" class="absolute p-1 z-20 bg-white border rounded-md">
       <!-- 匿名插槽 弹出层内容-->
       <slot></slot>
     </div>
@@ -20,6 +17,13 @@
 <script setup>
 import { ref } from "vue";
 
+/**popover位置对象
+ *  1 指定可选位置
+ * 2 prop指定位置
+ * 3 获取元素dom 创建读取元素尺寸的方法
+ * 4 生成气泡样式对象 用来控制每个位置
+ * 5 根据prop 计算样式对象
+ */
 
 const isViable = ref(false)
 
@@ -30,7 +34,7 @@ const onMouseenter = () => {
 }
 const onMouseleave = () => {
   console.log('鼠标溢出');
-  isViable.value = false
+  // isViable.value = false
 }
 </script>
 

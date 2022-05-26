@@ -20,14 +20,7 @@
     <!-- 匿名插槽 弹出层内容-->
     <div class="w-[140px] overflow-hidden">
       <div
-        class="
-          flex
-          items-center
-          p-1
-          cursor-pointer
-          rounded
-          :hover:bg-zinc-100/60
-        "
+        class="flex items-center p-1 cursor-pointer rounded hover:bg-zinc-100"
         v-for="item in themeList"
         :key="item.id"
       >
