@@ -1,0 +1,48 @@
+<template>
+  <div class="relative" @mouseenter="onMouseenter" @mouseleave="onMouseleave">
+    <div>
+      <!-- 具名插槽 外框-->
+      <slot name="reference"></slot>
+    </div>
+  </div>
+  <!-- 气泡展示 -->
+  <transition name="slide">
+    <div
+      v-show="isViable"
+      class="absolute right-10 top-8 p-1 z-20 bg-white border rounded-md"
+    >
+      <!-- 匿名插槽 弹出层内容-->
+      <slot></slot>
+    </div>
+  </transition>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+
+const isViable = ref(false)
+
+
+const onMouseenter = () => {
+  console.log('鼠标移入');
+  isViable.value = true
+}
+const onMouseleave = () => {
+  console.log('鼠标溢出');
+  isViable.value = false
+}
+</script>
+
+<style lang="scss" scoped>
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+// 准备进入
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(20px); //自下而上的动画
+}
+</style>
