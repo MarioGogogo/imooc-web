@@ -3,7 +3,7 @@
     <template #reference>
       <!-- 具名插槽 外框-->
       <svg-icon
-        name="icontubiao"
+        :name="svgIconName"
         class="
           w-4
           h-4
@@ -32,6 +32,7 @@
         "
         v-for="item in themeList"
         :key="item.id"
+        @click="onItemClick(item)"
       >
         <svg-icon
           :name="item.icon"
@@ -47,11 +48,34 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+/**监听主题
+ * 1. 简体主题切换行为
+ * 2.根据行为保存当前展示主题到vuex
+ * 3 根据vuex中主题 展示 header-theme下的显示图标
+ * 4.根据vuex保存的状态 改变html 和css
+ */
 const themeList = [
-  { id: 0, name: "极简白", icon: "icontubiao" },
-  { id: 1, name: "极夜黑", icon: "igw-l-moon" },
-  { id: 2, name: "跟随系统", icon: "zhuti" }
+  { id: 0, name: "极简白", icon: "icontubiao", type: "light" },
+  { id: 1, name: "极夜黑", icon: "igw-l-moon", type: "dark" },
+  { id: 2, name: "跟随系统", icon: "zhuti", type: "system" }
 ]
+// 切换事件
+const store = useStore()
+const onItemClick = (themeItem) => {
+  store.commit('themeState/changeThemeType', themeItem.type)
+}
+
+// 选择主题图标
+const svgIconName = computed(() => {
+  const findTheme = themeList.find(item => item.type === store.getters.themeType)
+  return findTheme.icon
+})
+
+
+
+
 </script>
 
 <style lang="scss" scoped>

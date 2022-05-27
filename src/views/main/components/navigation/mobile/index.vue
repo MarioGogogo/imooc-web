@@ -1,5 +1,16 @@
 <template>
-  <div class="mobile-head dark:bg-zinc-900 bg-white sticky top-0 left-0 z-10">
+  <div
+    class="
+      mobile-head
+      dark:bg-zinc-900
+      bg-white
+      sticky
+      top-0
+      left-0
+      z-10
+      duration-500
+    "
+  >
     <ul
       ref="ulTarget"
       class="relative flex overflow-auto p-1 text-xs text-zinc-600"

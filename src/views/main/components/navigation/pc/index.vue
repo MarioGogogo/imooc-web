@@ -1,5 +1,17 @@
 <template>
-  <div class="mobilehead bg-white sticky top-0 left-0 w-full z-10">
+  <div
+    class="
+      mobilehead
+      bg-white
+      sticky
+      top-0
+      left-0
+      w-full
+      z-10
+      dark:bg-zinc-800
+      duration-500
+    "
+  >
     <ul
       class="
         w-[800px]
@@ -10,10 +22,8 @@
         px-[10px]
         py-1
         text-xs text-zinc-600
-        duration-500
         overflow-hidden
         mx-auto
-        dark:bg-zinc-900 dark:shadow-l-zinc
       "
       :class="[isOpenCategory ? 'h-[206px]' : 'h-[56px]']"
     >
@@ -34,11 +44,11 @@
         @click="toggleOpenState"
       >
         <svg-icon
-          :name="[
+          :name="
             isOpenCategory
-              ? 'arrow-ios-back-outline'
-              : 'arrow-ios-forward-outline',
-          ]"
+              ? 'arrow-ios-forward-outline'
+              : 'arrow-ios-back-outline'
+          "
           class="w-1.5 h-1.5"
           fillClass="fill-zinc-900"
         ></svg-icon>
@@ -51,7 +61,7 @@
           px-1.5
           py-0
           z-10
-          duration-500
+          duration-300
           text-zinc-900 text-base
           font-bold
           h-4
@@ -64,7 +74,7 @@
           dark:text-zinc-500 dark:hover:bg-zinc-800
         "
         :class="{
-          'text-zinc-900 bg-zinc-200 dark:text-zinc-100 dark:bg-zinc-900 ':
+          'text-zinc-900 bg-zinc-200 dark:text-zinc-300 dark:bg-zinc-900':
             currentCategoryIndex === index,
         }"
         @click="onItemClick(index)"
