@@ -12,7 +12,7 @@
           rounded-sm
           duration-200
           outline-none
-          hover:bg-zinc-100/20
+          hover:bg-zinc-100/60
         "
         fillClass="fill-zinc-900"
       ></svg-icon>

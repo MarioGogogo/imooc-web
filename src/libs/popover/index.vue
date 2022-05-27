@@ -39,7 +39,7 @@ import { nextTick, ref, watch } from "vue";
 const props = defineProps({
   placement: {
     type: String,
-    default: "bottom-right",
+    default: "bottom-left",
     validator (val) {
       const res = direction.includes(val)
       if (!res) {
@@ -51,15 +51,23 @@ const props = defineProps({
 })
 
 const isViable = ref(false)
-
+let timeout = null
 
 const onMouseenter = () => {
   console.log('鼠标移入');
   isViable.value = true
+  if (timeout) {
+    clearTimeout(timeout)
+  }
 }
 const onMouseleave = () => {
+  // 加入防抖 避免 光标抖动 popovuer就消失
   console.log('鼠标溢出');
-  isViable.value = false
+  timeout = setTimeout(() => {
+    isViable.value = false
+    timeout = null
+  }, 100)
+
 }
 
 //计算元素位置
