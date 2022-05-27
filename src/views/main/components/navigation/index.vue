@@ -1,9 +1,6 @@
 <template>
   <div class="navigation">
-    <mobile-navigation
-      v-if="isMobileTerminal"
-      :data="categoryData"
-    ></mobile-navigation>
+    <mobile-navigation v-if="isMobileTerminal"></mobile-navigation>
     <pc-navigation v-else></pc-navigation>
   </div>
 </template>
@@ -13,25 +10,15 @@ import { isMobileTerminal } from '@/utils/flexible.js';
 import mobileNavigation from './mobile/index.vue';
 import pcNavigation from './pc/index.vue';
 import { ref, onMounted } from 'vue';
-import { fetchGetCategory } from '@/api/category.js';
-import { ALL_CATEGORY_ITEM } from '@/constants';
-
+import Layout from '@/views/layout/index.vue';
+import { useStore } from 'vuex';
 //初始化类别数据
 const categoryData = ref([])
 
+//异步请求类别数据
+const store = useStore()
+store.dispatch("categoryState/useFetchCategoryData")
 
-onMounted(async () => {
-  const res = await fetchGetCategory()
-
-  const { results, success } = res.data
-  if (success && results[0]) {
-    const { categorys } = results[0]
-    categoryData.value = categorys
-    categoryData.value.unshift(ALL_CATEGORY_ITEM)
-    console.log('%c 🍅 res: ', 'font-size:20px;background-color: #FFDD4D;color:#fff;', categorys);
-  }
-
-})
 </script>
 
 <style lang="scss" scoped>

@@ -28,20 +28,6 @@
           fillClass="fill-zinc-900"
         ></svg-icon>
       </div>
-      <!-- <svg-icon
-        name="renzhengyonghu"
-        class="
-          w-4
-          h-4
-          p-1
-          cursor-pointer
-          rounded-sm
-          duration-200
-          outline-none
-          hover:bg-zinc-100/60
-        "
-        fillClass="fill-zinc-900"
-      ></svg-icon> -->
     </template>
     <!-- 匿名插槽 弹出层内容-->
     <div class="w-[140px] overflow-hidden">

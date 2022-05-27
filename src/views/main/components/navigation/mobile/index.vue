@@ -33,7 +33,7 @@
         :ref="getItemRef"
         class="flex-shrink-0 px-1.5 py-0.5 z-10 duration-200 last:mr-4"
         :class="{ 'text-zinc-100': currentCategoryIndex === index }"
-        v-for="(item, index) in data"
+        v-for="(item, index) in $store.getters.categorys"
         :key="item.id"
         @click="onItemClick(index)"
       >
@@ -43,7 +43,10 @@
     {{ ulScrollX }}
     <!-- 底部弹窗 -->
     <popup v-model="isVisable">
-      <menu-list :categorys="data" @onItemClick="onItemClick" />
+      <menu-list
+        :categorys="$store.getters.categorys"
+        @onItemClick="onItemClick"
+      />
     </popup>
   </div>
 </template>
@@ -52,12 +55,6 @@
 import { ref, onBeforeUpdate, watch } from 'vue';
 import { useScroll } from '@vueuse/core'
 import MenuList from '@/views/main/components/menu/index.vue';
-defineProps({
-  data: {
-    type: Array,
-    required: true
-  }
-})
 
 //默认选中下标
 const currentCategoryIndex = ref(0)
