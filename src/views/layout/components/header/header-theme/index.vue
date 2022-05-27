@@ -25,7 +25,7 @@
         :key="item.id"
       >
         <svg-icon
-          name="icontubiao"
+          :name="item.icon"
           class="w-1.5 h-1.5 mr-1"
           fillClass="fill-zinc-900"
         ></svg-icon>
@@ -36,7 +36,11 @@
 </template>
 
 <script setup>
-const themeList = [{ id: 0, name: "极简白" }, { id: 1, name: "极夜黑" }, { id: 2, name: "跟随系统" }]
+const themeList = [
+  { id: 0, name: "极简白", icon: "icontubiao" },
+  { id: 1, name: "极夜黑", icon: "igw-l-moon" },
+  { id: 2, name: "跟随系统", icon: "zhuti" }
+]
 </script>
 
 <style lang="scss" scoped>
