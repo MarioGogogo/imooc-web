@@ -13,6 +13,7 @@
         duration-500
         overflow-hidden
         mx-auto
+        dark:bg-zinc-900 dark:shadow-l-zinc
       "
       :class="[isOpenCategory ? 'h-[206px]' : 'h-[56px]']"
     >
@@ -28,6 +29,7 @@
           cursor-pointer
           duration-500
           hover:bg-zinc-200
+          dark:text-zinc-500 dark:hover:text-zinc-300
         "
         @click="toggleOpenState"
       >
@@ -59,8 +61,12 @@
           rounded
           mr-1
           mb-1
+          dark:text-zinc-500 dark:hover:bg-zinc-800
         "
-        :class="{ 'text-zinc-900 bg-zinc-200': currentCategoryIndex === index }"
+        :class="{
+          'text-zinc-900 bg-zinc-200 dark:text-zinc-100 dark:bg-zinc-900 ':
+            currentCategoryIndex === index,
+        }"
         @click="onItemClick(index)"
       >
         {{ item.name }}

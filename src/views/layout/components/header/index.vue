@@ -1,5 +1,15 @@
 <template>
-  <div class="w-full bg-white border-b border-b-zinc-200 px-2 py-1">
+  <!-- 头部组件 -->
+  <div
+    class="
+      w-full
+      bg-white
+      dark:bg-zinc-800 dark:border-b-light-50
+      border-b border-b-zinc-700
+      px-2
+      py-1
+    "
+  >
     <div class="flex items-center">
       <svg-icon
         class="w-5 h-5 cursor-pointer mr-2"

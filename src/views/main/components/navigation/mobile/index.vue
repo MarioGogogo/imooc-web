@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-head bg-white sticky top-0 left-0 z-10">
+  <div class="mobile-head dark:bg-zinc-900 bg-white sticky top-0 left-0 z-10">
     <ul
       ref="ulTarget"
       class="relative flex overflow-auto p-1 text-xs text-zinc-600"
@@ -8,7 +8,14 @@
       <li
         ref="sliderTarget"
         :style="sliderStyle"
-        class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200"
+        class="
+          absolute
+          h-[22px]
+          bg-zinc-900
+          rounded-lg
+          duration-200
+          dark:bg-zinc-800
+        "
       ></li>
       <!-- 汉堡按钮 -->
       <li
@@ -24,6 +31,7 @@
           z-20
           duration-500
           shadow-l-white
+          dark:bg-zinc-900 dark:shadow-l-zinc
         "
         @click="onPopUpClick"
       >
@@ -31,7 +39,15 @@
       </li>
       <li
         :ref="getItemRef"
-        class="flex-shrink-0 px-1.5 py-0.5 z-10 duration-200 last:mr-4"
+        class="
+          flex-shrink-0
+          px-1.5
+          py-0.5
+          z-10
+          duration-200
+          last:mr-4
+          dark:text-zinc-500 dark:hover:text-zinc-300
+        "
         :class="{ 'text-zinc-100': currentCategoryIndex === index }"
         v-for="(item, index) in $store.getters.categorys"
         :key="item.id"

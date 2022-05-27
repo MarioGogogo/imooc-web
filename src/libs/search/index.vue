@@ -9,6 +9,7 @@
       border-white
       duration-500
       hover:bg-pink-100/40
+      dark:border-zinc-200
     "
     ref="searchRef"
   >
@@ -39,6 +40,11 @@
           border-zinc--100
           focus:border-pink-300
           group-hover:bg-white group-hover:border-zinc-200
+          dark:bg-zinc-800
+          dark:text-zinc-200
+          dark:border-zinc-700
+          dark:group-hover:bg-zinc-900
+          dark:group-hover:border-zinc-700
         "
         v-model="inputValue"
         placeholder="搜索你喜欢的"
@@ -116,6 +122,7 @@
           border border-zinc-200
           duration-200
           hover:shadow-2xl
+          dark:bg-zinc-800 dark:border-zinc-600
         "
       >
         <h1>我是插槽{{ inputValue }}</h1>
