@@ -1,19 +1,15 @@
 <template>
-  <div
-    class="
-      mobile-head
-      dark:bg-zinc-900
-      bg-white
-      sticky
-      top-0
-      left-0
-      z-10
-      duration-500
-    "
-  >
+  <div class="bg-white dark:bg-zinc-900 duration-500 sticky top-0 left-0 z-10">
     <ul
       ref="ulTarget"
-      class="relative flex overflow-auto p-1 text-xs text-zinc-600"
+      class="
+        relative
+        flex
+        overflow-auto
+        p-1
+        text-xs text-zinc-600
+        overflow-hidden
+      "
     >
       <!-- 滑块 -->
       <li
@@ -67,7 +63,6 @@
         {{ item.name }}
       </li>
     </ul>
-    {{ ulScrollX }}
     <!-- 底部弹窗 -->
     <popup v-model="isVisable">
       <menu-list

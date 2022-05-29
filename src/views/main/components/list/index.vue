@@ -1,9 +1,10 @@
 <template>
   <waterfall
+    class="px-1 w-full"
     :data="wallpaperData"
     nodeKey="id"
-    :column="5"
-    :picturePreReading="true"
+    :column="isMobileTerminal ? 2 : 5"
+    :picturePreReading="false"
   >
     <template v-slot="{ item, width }">
       <wallpaper-item :data="item" :width="width"></wallpaper-item>
@@ -13,9 +14,9 @@
 
 <script setup>
 import { getPexlesList } from '@/api/pexels.js';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import WallpaperItem from './item.vue';
-
+import { isMobileTerminal } from '@/utils/flexible.js';
 
 const wallpaperData = ref([])
 const wallpaperList = async () => {
@@ -27,6 +28,7 @@ const wallpaperList = async () => {
   }
 
 }
+
 
 
 wallpaperList()

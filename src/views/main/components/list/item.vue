@@ -17,6 +17,7 @@
         :src="data.photo"
         alt="wallpaper"
         srcset=""
+        :style="{ height: (width / data.photoWidth) * data.photoHeight + 'px' }"
       />
       <!-- 遮罩层 -->
       <div
@@ -79,6 +80,9 @@ const props = defineProps({
   data: {
     type: Object,
     required: true
+  },
+  width: {
+    type: Number,
   }
 })
 </script>

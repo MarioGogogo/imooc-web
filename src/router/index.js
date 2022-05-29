@@ -8,9 +8,5 @@ const router = createRouter({
   history: createWebHistory(),
   routes: isMobileTerminal.value ? mobileTerminalRoutes : pcTerminalRoutes,
 })
-console.log(
-  '%c 🍡 isMobileTerminal: ',
-  'font-size:20px;background-color: #465975;color:#fff;',
-  isMobileTerminal.value
-)
+
 export default router

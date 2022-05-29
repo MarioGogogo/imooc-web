@@ -4,7 +4,6 @@
     <div class="h-main">
       <main-vue></main-vue>
     </div>
-
     <floating></floating>
   </div>
 </template>

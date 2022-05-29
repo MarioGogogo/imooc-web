@@ -122,11 +122,11 @@ const useColumnWidth = () => {
   // 计算列宽
   columnWidth.value =
     (containerWidth.value - columnSpacingTotal.value) / props.column
+  console.log('%c 🥠 计算列宽: ', 'font-size:20px;background-color: #ED9EC7;color:#fff;', columnWidth.value);
 }
 onMounted(() => {
   // 计算列宽
   useColumnWidth()
-  console.log('%c 🌭 columnWidth.value: ', 'font-size:20px;background-color: #7F2B82;color:#fff;', columnWidth.value);
 })
 
 // item 高度集合
@@ -266,7 +266,7 @@ const reset = () => {
     props.data.forEach((item) => {
       item._style = null
     })
-  }, 100)
+  }, 200)
 }
 watch(
   () => props.column,
