@@ -20,8 +20,12 @@ import WallpaperItem from './item.vue';
 const wallpaperData = ref([])
 const wallpaperList = async () => {
   const { data } = await getPexlesList()
-  console.log('%c 🍯 壁纸请求: ', 'font-size:20px;background-color: #E41A6A;color:#fff;', data);
-  wallpaperData.value = data.photos
+  if (data.data) {
+    wallpaperData.value = data.data.list
+  } else {
+    wallpaperData.value = []
+  }
+
 }
 
 

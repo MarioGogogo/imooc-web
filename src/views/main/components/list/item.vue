@@ -8,16 +8,14 @@
       xl:dark:bg-zinc-800
       rounded
       pb-1
-      h-[280px]
-      w-[230px]
     "
   >
     <div class="relative w-full rounded cursor-zoom-in gruop">
       <!-- 图片 -->
       <img
         class="w-full rounded bg-transparent"
-        :src="data.src.medium"
-        alt=""
+        :src="data.photo"
+        alt="wallpaper"
         srcset=""
       />
       <!-- 遮罩层 -->
@@ -66,17 +64,12 @@
     </div>
     <!-- 标题 -->
     <p class="text-sm mt-1 font-bold text-zinc-900 dark:text-zinc-300 px-1">
-      {{ data.alt }}
+      {{ data.title }}
     </p>
     <!-- 作者头像 姓名 -->
     <div class="flex items-center mt-1 px-1">
-      <img
-        class="w-2 h-2 rounded-full"
-        src="@/assets/logo.png"
-        alt=""
-        srcset=""
-      />
-      <p class="text-sm text-zinc-500 ml-1">{{ data.photographer }}</p>
+      <img class="w-2 h-2 rounded-full" :src="data.avatar" alt="" srcset="" />
+      <p class="text-sm text-zinc-500 ml-1">{{ data.author }}</p>
     </div>
   </div>
 </template>

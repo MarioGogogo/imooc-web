@@ -24,6 +24,7 @@
         text-xs text-zinc-600
         overflow-hidden
         mx-auto
+        duration-500
       "
       :class="[isOpenCategory ? 'h-[206px]' : 'h-[56px]']"
     >

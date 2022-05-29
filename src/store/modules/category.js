@@ -27,9 +27,9 @@ export default {
         context.commit('setCategorys', JSON.parse(categorys))
       } else {
         const res = await fetchGetCategory()
-        const { results, success } = res.data
-        if (success && results[0]) {
-          const { categorys } = results[0]
+        const { data, success } = res.data
+        if (success && data.categorys) {
+          const { categorys } = data
           localStorage.setItem('categorys', JSON.stringify(categorys))
           context.commit('setCategorys', categorys)
         } else {
