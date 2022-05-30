@@ -55,10 +55,12 @@
           last:mr-4
           dark:text-zinc-500 dark:hover:text-zinc-300
         "
-        :class="{ 'text-zinc-100': currentCategoryIndex === index }"
+        :class="{
+          'text-zinc-100': $store.getters.currentCategoryIndex === index,
+        }"
         v-for="(item, index) in $store.getters.categorys"
         :key="item.id"
-        @click="onItemClick(index)"
+        @click="onItemClick(item)"
       >
         {{ item.name }}
       </li>
@@ -77,9 +79,9 @@
 import { ref, onBeforeUpdate, watch } from 'vue';
 import { useScroll } from '@vueuse/core'
 import MenuList from '@/views/main/components/menu/index.vue';
-
+import { useStore } from 'vuex';
 //默认选中下标
-const currentCategoryIndex = ref(0)
+
 const isVisable = ref(false)
 let itemRefs = []
 const getItemRef = (el) => {
@@ -100,9 +102,9 @@ const ulTarget = ref(null)
 //获取滚动偏移量
 const { x: ulScrollX } = useScroll(ulTarget)
 
-const onItemClick = (index) => {
-  console.log('index', index);
-  currentCategoryIndex.value = index
+const store = useStore()
+const onItemClick = (item) => {
+  store.commit("appState/changeCurrentCategory", item)
   isVisable.value = false
 }
 
@@ -110,8 +112,8 @@ const onPopUpClick = () => {
   isVisable.value = true
 }
 
-
-watch(currentCategoryIndex, (val) => {
+//  fix:无法滑动 滑块监听
+watch(() => store.getters.currentCategoryIndex, (val) => {
   const rect = itemRefs[val].getBoundingClientRect()
   console.log('rect', rect);
   sliderStyle.value = {

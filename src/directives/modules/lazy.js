@@ -7,7 +7,6 @@ export default {
     el.src = '' //todo:可以设置占位符
     const { stop } = useIntersectionObserver(el, ([{ isIntersecting }]) => {
       if (isIntersecting) {
-        console.log('指令', el)
         //加载图片
         el.src = imgSrc
         // 停止监听

@@ -76,9 +76,9 @@
         "
         :class="{
           'text-zinc-900 bg-zinc-200 dark:text-zinc-300 dark:bg-zinc-900':
-            currentCategoryIndex === index,
+            $store.getters.currentCategoryIndex === index,
         }"
-        @click="onItemClick(index)"
+        @click="onItemClick(item)"
       >
         {{ item.name }}
       </li>
@@ -88,16 +88,17 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import { useStore } from 'vuex';
 const isOpenCategory = ref(false)
 
 const toggleOpenState = () => {
   isOpenCategory.value = !isOpenCategory.value
 }
 // 选中状态
-const currentCategoryIndex = ref(0)
-const onItemClick = (index) => {
-  currentCategoryIndex.value = index
+const store = useStore()
+
+const onItemClick = (item) => {
+  store.commit("appState/changeCurrentCategory", item)
 }
 </script>
 

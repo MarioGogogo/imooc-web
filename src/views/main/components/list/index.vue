@@ -20,10 +20,10 @@
 
 <script setup>
 import { getPexlesList } from '@/api/pexels.js';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import WallpaperItem from './item.vue';
 import { isMobileTerminal } from '@/utils/flexible.js';
-
+import { useStore } from 'vuex';
 // 请求分页
 let query = {
   page: 1,
@@ -54,8 +54,24 @@ const getWallpaperList = async () => {
   loading.value = false
 }
 
+//通过newQuery 重新发起请求
+const restQuery = (newQuery) => {
+  query = { ...query, ...newQuery }
+  //数据重置之后会重新触发页面onload刷新
+  isFinished.value = false
+  wallpaperData.value = []
+}
 
-
+// 监听currentCategory方法
+const store = useStore()
+watch(
+  () => store.getters.currentCategory,
+  (currentCategory) => {
+    restQuery({
+      page: 1,
+      categoryId: currentCategory.id
+    })
+  })
 
 
 
