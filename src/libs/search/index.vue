@@ -19,7 +19,7 @@
       <svg-icon
         class="w-1.5 h-1.5 absolute translate-y-[-50%] top-[50%] left-2"
         name="sousuo"
-        color="#fff"
+        color="#F5ABCD"
       ></svg-icon>
       <!-- 输入框 -->
       <input
