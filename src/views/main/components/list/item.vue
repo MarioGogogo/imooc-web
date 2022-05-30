@@ -10,7 +10,10 @@
       pb-1
     "
   >
-    <div class="relative w-full rounded cursor-zoom-in gruop">
+    <div
+      class="relative w-full rounded cursor-zoom-in gruop"
+      :style="{ background: randomRGB() }"
+    >
       <!-- 图片 -->
       <img
         v-lazy
@@ -77,6 +80,7 @@
 </template>
 
 <script setup>
+import { randomRGB } from '@/utils/colors.js';
 const props = defineProps({
   data: {
     type: Object,
