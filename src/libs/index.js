@@ -3,6 +3,8 @@
 import SvgIcon from './svg-icon/index.vue'
 import Popup from './popup/index.vue'
 import { defineAsyncComponent } from 'vue'
+export { confirm } from './confirm/index.js'
+
 export default {
   install(app) {
     // app.component('svg-icon', SvgIcon)

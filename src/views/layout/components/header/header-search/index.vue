@@ -10,7 +10,7 @@
             @hintClick="onSearchClick"
           />
         </div>
-        <history @historyClick="onSearchClick" v-show="!inputValue"></history>
+        <history @historyClick="onSearchClick"></history>
       </template>
     </search>
   </div>

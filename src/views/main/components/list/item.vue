@@ -44,7 +44,7 @@
         <base-button
           class="absolute top-1.5 right-1.5"
           type="info"
-          icon="heart"
+          icon="aixin"
           iconClass="fill-zinc-900 dark:fill-zinc-200"
         ></base-button>
         <!-- 下载 -->
@@ -52,7 +52,7 @@
           class="absolute bottom-1.5 left-1.5 bg-zinc-100/70"
           type="info"
           size="small"
-          icon="download"
+          icon="xiazai"
           iconClass="fill-zinc-900 dark:fill-zinc-200"
         ></base-button>
         <!-- 全屏 -->
@@ -60,7 +60,7 @@
           class="absolute bottom-1.5 right-1.5 bg-zinc-100/70"
           type="info"
           size="small"
-          icon="sceen"
+          icon="24gl-fullScreenEnter3"
           iconClass="fill-zinc-900 dark:fill-zinc-200"
         ></base-button>
       </div>

@@ -3,7 +3,7 @@
     <div class="flex items-center text-xs mb-1 text-zinc-400">
       <span>最新搜索</span>
       <svg-icon
-        name="delete"
+        name="shanchu"
         class="
           w-2.5
           h-2.5
@@ -41,7 +41,7 @@
       >
         <span>{{ item }}</span>
         <svg-icon
-          name="input-delete"
+          name="guanbi"
           class="
             w-2.5
             h-2.5
@@ -60,10 +60,15 @@
 
 <script setup>
 import { useStore } from 'vuex';
+import { confirm } from '@/libs'
 const store = useStore()
 const deleteAllClick = () => {
-  store.commit("searchState/deleteAllHistory")
-
+  confirm('要删除所有历史记录吗？').then(() => {
+    console.log('删了confirm');
+    store.commit("searchState/deleteAllHistory")
+  }).catch(() => {
+    console.log('取消confirm');
+  })
 }
 const onDeleteClick = (index) => {
   store.commit("searchState/deleteHistory", index)

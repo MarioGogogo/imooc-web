@@ -45,11 +45,7 @@
         @click="toggleOpenState"
       >
         <svg-icon
-          :name="
-            isOpenCategory
-              ? 'arrow-ios-forward-outline'
-              : 'arrow-ios-back-outline'
-          "
+          :name="isOpenCategory ? 'pullup' : 'pulldown'"
           class="w-1.5 h-1.5"
           fillClass="fill-zinc-900"
         ></svg-icon>
