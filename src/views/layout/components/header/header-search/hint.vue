@@ -54,7 +54,7 @@ watchDebounced(
   debounce: 500  //延迟时间
 })
 
-const emits = defineEmits("hintClick",)
+const emits = defineEmits(["hintClick"])
 //点击事件
 const onItemClick = (item) => {
   emits('hintClick', item)

@@ -168,8 +168,7 @@ const onClearInputValue = () => {
 }
 
 const onSearchKeyEnter = () => {
-  console.log('键盘回车收索');
-  // emits()
+  // emits("keyEnterSearch")
 }
 
 // 下拉区域是否展示

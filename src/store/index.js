@@ -3,6 +3,7 @@ import getters from './getters'
 import categoryState from './modules/category'
 import themeState from './modules/theme'
 import appState from './modules/app'
+import searchState from './modules/search'
 import createPersistedState from 'vuex-persistedstate'
 const store = createStore({
   getters,
@@ -10,11 +11,12 @@ const store = createStore({
     categoryState,
     themeState,
     appState,
+    searchState,
   },
   plugins: [
     createPersistedState({
       key: 'imooc-front',
-      paths: ['category', 'themeType'],
+      paths: ['category', 'themeType', 'search'],
     }),
   ],
 })

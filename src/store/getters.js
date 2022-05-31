@@ -14,4 +14,6 @@ export default {
       (item) => item.id === getters.currentCategory.id
     )
   },
+  //搜索历史记录
+  historys: (state) => state.searchState.historys,
 }

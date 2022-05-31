@@ -10,6 +10,7 @@
             @hintClick="onSearchClick"
           />
         </div>
+        <history @historyClick="onSearchClick" v-show="!inputValue"></history>
       </template>
     </search>
   </div>
@@ -18,11 +19,14 @@
 <script setup>
 import { ref } from 'vue';
 import hint from './hint.vue';
+import history from './history.vue';
+import { useStore } from 'vuex';
 const inputValue = ref("")
+const store = useStore()
 
 const onSearchClick = (val) => {
   inputValue.value = val
-  console.log('搜索', val);
+  store.commit("searchState/addHistory", val)
 }
 
 </script>
