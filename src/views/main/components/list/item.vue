@@ -19,8 +19,6 @@
         v-lazy
         class="w-full rounded bg-transparent"
         :src="data.photo"
-        alt="wallpaper"
-        srcset=""
         :style="{ height: (width / data.photoWidth) * data.photoHeight + 'px' }"
       />
       <!-- 遮罩层 -->

@@ -125,8 +125,6 @@
           dark:bg-zinc-800 dark:border-zinc-600
         "
       >
-        <h1>我是插槽{{ inputValue }}</h1>
-
         <slot name="dropdown"></slot>
       </div>
     </transition>

@@ -6,3 +6,12 @@ export const getPexlesList = (data) => {
     params: data,
   })
 }
+
+export const getHintsList = (q) => {
+  return request({
+    url: '/search',
+    params: {
+      q,
+    },
+  })
+}

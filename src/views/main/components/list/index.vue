@@ -56,17 +56,30 @@ const getWallpaperList = async () => {
 
 //通过newQuery 重新发起请求
 const restQuery = (newQuery) => {
-  query = { ...query, ...newQuery }
+
+  //判断type是否改变 
+  if (query.categoryId !== newQuery.categoryId && newQuery.categoryId != "all") {
+    query = { ...query, ...newQuery }
+  } else {
+    query = {
+      page: 1,
+      size: 20
+    }
+  }
+  //  之前的类别数据是否为空
+  wallpaperData.value = []
   //数据重置之后会重新触发页面onload刷新
   isFinished.value = false
-  wallpaperData.value = []
+  getWallpaperList()
 }
 
 // 监听currentCategory方法
+
 const store = useStore()
 watch(
   () => store.getters.currentCategory,
   (currentCategory) => {
+    console.log('%c 🍈 监听currentCategory方法: ', 'font-size:20px;background-color: #F5CE50;color:#fff;', currentCategory);
     restQuery({
       page: 1,
       categoryId: currentCategory.id
