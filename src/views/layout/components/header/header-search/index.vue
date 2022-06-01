@@ -10,7 +10,10 @@
             @hintClick="onSearchClick"
           />
         </div>
-        <history @historyClick="onSearchClick"></history>
+        <!-- 历史记录 -->
+        <history @historyClick="onSearchClick" v-show="!inputValue"></history>
+        <!-- 推荐主题 -->
+        <hot-theme v-show="!inputValue"></hot-theme>
       </template>
     </search>
   </div>
@@ -20,6 +23,7 @@
 import { ref } from 'vue';
 import hint from './hint.vue';
 import history from './history.vue';
+import HotTheme from './theme.vue';
 import { useStore } from 'vuex';
 const inputValue = ref("")
 const store = useStore()
@@ -27,6 +31,8 @@ const store = useStore()
 const onSearchClick = (val) => {
   inputValue.value = val
   store.commit("searchState/addHistory", val)
+  //改变vuex searchText
+  store.commit("appState/changeSearchText", val)
 }
 
 </script>

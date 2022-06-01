@@ -86,7 +86,16 @@ watch(
     })
   })
 
-
+// 监听 搜索文本变化 重新搜索
+watch(
+  () => store.getters.searchText,
+  (newSearchText) => {
+    console.log('%c 🍈 监听newSearchText搜索: ', 'font-size:20px;background-color: #F5CE50;color:#fff;', newSearchText);
+    restQuery({
+      page: 1,
+      searchText: newSearchText
+    })
+  })
 
 
 </script>

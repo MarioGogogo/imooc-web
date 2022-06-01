@@ -16,6 +16,7 @@
     >
       <!-- 图片 -->
       <img
+        ref="imgRef"
         v-lazy
         class="w-full rounded bg-transparent"
         :src="data.photo"
@@ -54,6 +55,7 @@
           size="small"
           icon="xiazai"
           iconClass="fill-zinc-900 dark:fill-zinc-200"
+          @click="onDownLoad"
         ></base-button>
         <!-- 全屏 -->
         <base-button
@@ -62,6 +64,7 @@
           size="small"
           icon="24gl-fullScreenEnter3"
           iconClass="fill-zinc-900 dark:fill-zinc-200"
+          @click="onFullScreen"
         ></base-button>
       </div>
     </div>
@@ -78,7 +81,10 @@
 </template>
 
 <script setup>
+import { saveAs } from 'file-saver';
 import { randomRGB } from '@/utils/colors.js';
+import { useFullscreen } from '@vueuse/core';
+import { ref } from 'vue';
 const props = defineProps({
   data: {
     type: Object,
@@ -88,6 +94,17 @@ const props = defineProps({
     type: Number,
   }
 })
+
+const onDownLoad = () => {
+  //下载图片链接
+  saveAs(props.data.photoDownLink)
+}
+
+const imgRef = ref(null)
+const onFullScreen = () => {
+  const { enter } = useFullscreen(imgRef)
+  enter()
+}
 </script>
 
 <style lang="scss" scoped>
