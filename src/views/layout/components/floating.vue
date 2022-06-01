@@ -22,7 +22,7 @@
       "
     >
       <svg-icon
-        name="xiaoxizhongxin"
+        name="compass"
         class="w-2 h-2"
         fillClass="fill-zinc-900 dark:fill-zinc-200 gruop-hover:fill-main"
       ></svg-icon>
@@ -51,7 +51,7 @@
           "
         >
           <svg-icon
-            name="xiaoxizhongxin"
+            name="youjian"
             class="w-2 h-2"
             fillClass="fill-zinc-900 dark:fill-zinc-200 gruop-hover:fill-main"
           ></svg-icon>
@@ -70,7 +70,7 @@
           "
         >
           <svg-icon
-            name="xiaoxizhongxin"
+            name="youjian"
             class="w-2 h-2"
             fillClass="fill-zinc-900  dark:fill-zinc-200 gruop-hover:fill-main"
           ></svg-icon>
